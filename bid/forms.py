@@ -10,3 +10,6 @@ class BidCreateForm(forms.ModelForm):
     class Meta:
         model = Bid
         fields = ("bidder_name", "bid_amount", "vote")
+
+class CalculationForm(forms.Form):
+    amount = forms.IntegerField(label="Amount")

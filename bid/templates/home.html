@@ -17,16 +17,41 @@
     <h1>Bid for fun, convocation CSE 2K16, SMVDU</h1>
     <h3> Is there anyone in these who will get the cancellor gold medal? Bid and Vote</h3> 
     <h2> Shreya, Shubham Up. or Rashid</h2>   
-   <br><br>
+   <br>
    <!--Form with multiple submit buttons-->
    <form action="" method="post">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Submit">
+        {{bid_create_form}}
+        <input type="submit" name="bid_create" value="Submit">
+    </form>
+    <br><hr><br>
+    <h3> Current Winning calculations (Dynamic : depends on verfied bids at moment)</h3> 
+    <br>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{calculation_form}}
+      <input type="submit" name="do_calculation" value="Submit">
     </form>
     <br>
+    {% if calculation_value %}
+      <table style="border:1px solid black;">
+        <tr>
+          <td>Shreya</td>
+          <td>{{etc_win_shreya}}</td>
+        </tr>
+        <tr>
+          <td>Shubham Up.</td>
+          <td>{{etc_win_shubham}}</td>
+        </tr>
+        <tr>
+          <td>Raashid</td>
+          <td>{{etc_win_raashid}}</td>
+        </tr>
+      </table>
+    {% endif %}
+    <br><br>
     <p>❌ means bid is not verified, please contact any members of <a href="{% url 'croods' %}">croods</a> to get your bid verified</p>
-    <p>✅ yor bid is verified.</p>
+    <p>✅ your bid is verified.</p>
     <br>
     <table>
       <tr>
