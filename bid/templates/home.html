@@ -4,7 +4,15 @@
   <head>
     <title>Convocation Betting</title>
   </head>
-   
+  <style>
+    th{
+      border:1px solid black;
+    }
+    th, td {
+      padding: 15px;
+    }
+  </style>
+
   <body>
     <h1>Bid for fun, convocation CSE 2K16, SMVDU</h1>
    <h2> Shreya, Shubham Up. or Rashid</h2>   
@@ -15,5 +23,18 @@
         {{form}}
         <input type="submit" value="Submit">
     </form>
+    <br><br>
+    <table>
+      <tr>
+        <th>Shreya Supporters</th>
+        <th>Shubham Up. Supporters</th>
+        <th>Rashid Supporters</th>
+      </tr>
+      <tr>
+        <td style="vertical-align:top">{% include 'bids.html' with supporters=shreya_supporters %}</td>
+        <td style="vertical-align:top">{% include 'bids.html' with supporters=shubham_supporters %}</td>
+        <td style="vertical-align:top">{% include 'bids.html' with supporters=rashid_supporters %}</td>
+      </tr>
+    </table>
   </body>
 </html>

@@ -1,0 +1,11 @@
+{% block content %}
+    {% for Bid in supporters %}
+        {% if Bid.is_approved %}
+            ✅  
+        {% else %}
+            ❌ 
+        {% endif %}
+       {{ Bid.bidder_name}}, bid {{ Bid.bid_amount}}
+      <br>
+    {% endfor %}
+{% endblock %}
