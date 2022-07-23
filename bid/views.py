@@ -15,3 +15,7 @@ def home_view(request):
     context["shubham_supporters"] = models.Bid.objects.filter(vote="2")
     context["rashid_supporters"] = models.Bid.objects.filter(vote="3")
     return render(request, "home.html", context)
+
+def info_view(request):
+    context = {}
+    return render(request, "info.html", context)
