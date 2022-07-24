@@ -11,59 +11,71 @@
     th, td {
       padding: 15px;
     }
+    div {  
+      padding-left: 25px;
+    }  
+
   </style>
 
   <body>
-    <h1>Bid for fun, convocation CSE 2K16, SMVDU</h1>
-    <h3> Is there anyone in these who will get the cancellor gold medal? Bid and Vote</h3> 
-    <h2> Shreya, Shubham Up. or Rashid</h2>   
-   <br>
-   <!--Form with multiple submit buttons-->
-   <form action="" method="post">
-        {% csrf_token %}
-        {{bid_create_form}}
-        <input type="submit" name="bid_create" value="Submit">
-    </form>
-    <br><hr><br>
-    <h3> Current Winning calculations (Dynamic : depends on verfied bids at moment)</h3> 
+    <div>
+      <h1>Bid for fun, convocation CSE 2K16, SMVDU</h1>
+      <h3> Is there anyone in these who will get the cancellor gold medal? Bid and Vote</h3> 
+      <h2> Shreya, Shubham Up. or Rashid</h2>   
     <br>
+    <!--Form with multiple submit buttons-->
     <form action="" method="post">
-      {% csrf_token %}
-      {{calculation_form}}
-      <input type="submit" name="do_calculation" value="Submit">
-    </form>
-    <br>
-    {% if calculation_value %}
-      <table style="border:1px solid black;">
+          {% csrf_token %}
+          {{bid_create_form}}
+          <input type="submit" name="bid_create" value="Submit">
+      </form>
+      <br><hr><br>
+      <h3> Current Winning Predictions</h3> 
+      <p>
+        * Enter the amount you want to bid.<br>
+        * Get prediction, how much <b>additional</b> money you may make
+      </p>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{calculation_form}}
+        <input type="submit" name="do_calculation" value="Submit">
+      </form>
+      <br>
+      {% if calculation_value %}
+        <table>
+          <tr>
+            <th>Shreya</th>
+            <th>Shubham Up.</th>
+            <th>Raashid</th>
+          </tr>
+          <tr>
+            <td>₹ {{etc_win_shreya}}</td>
+            <td>₹ {{etc_win_shubham}}</td>
+            <td>₹ {{etc_win_raashid}}</td>
+          </tr>
+        </table>
+        * If you bid for shreya, you may get <b>₹ {{etc_win_shreya}}</b> based on current scenario, <b>₹ {{etc_win_shubham}}</b> with Shubham Up., and <b>₹ {{etc_win_raashid}}</b> with Raashid
+        <p>
+          * <a href="{% url 'formula' %}">Bidding Formula</a>
+        </p>
+      {% endif %}
+      <br><hr><br>
+      <h3>Bids</h3>
+      <p>❌ means bid is not verified, please contact any members of <a href="{% url 'croods' %}">croods</a> to get your bid verified</p>
+      <p>✅ your bid is verified.</p>
+      <br>
+      <table>
         <tr>
-          <td>Shreya</td>
-          <td>{{etc_win_shreya}}</td>
+          <th>Shreya Supporters</th>
+          <th>Shubham Up. Supporters</th>
+          <th>Raashid Supporters</th>
         </tr>
         <tr>
-          <td>Shubham Up.</td>
-          <td>{{etc_win_shubham}}</td>
-        </tr>
-        <tr>
-          <td>Raashid</td>
-          <td>{{etc_win_raashid}}</td>
+          <td style="vertical-align:top">{% include 'bids.html' with supporters=shreya_supporters %}</td>
+          <td style="vertical-align:top">{% include 'bids.html' with supporters=shubham_supporters %}</td>
+          <td style="vertical-align:top">{% include 'bids.html' with supporters=rashid_supporters %}</td>
         </tr>
       </table>
-    {% endif %}
-    <br><br>
-    <p>❌ means bid is not verified, please contact any members of <a href="{% url 'croods' %}">croods</a> to get your bid verified</p>
-    <p>✅ your bid is verified.</p>
-    <br>
-    <table>
-      <tr>
-        <th>Shreya Supporters</th>
-        <th>Shubham Up. Supporters</th>
-        <th>Rashid Supporters</th>
-      </tr>
-      <tr>
-        <td style="vertical-align:top">{% include 'bids.html' with supporters=shreya_supporters %}</td>
-        <td style="vertical-align:top">{% include 'bids.html' with supporters=shubham_supporters %}</td>
-        <td style="vertical-align:top">{% include 'bids.html' with supporters=rashid_supporters %}</td>
-      </tr>
-    </table>
+    </div>
   </body>
 </html>

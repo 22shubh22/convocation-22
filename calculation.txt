@@ -1,0 +1,19 @@
+How you earn money
+
+suppose you bet for amount of a contestent = x
+
+if your choosen contestent wins
+
+
+you get
+
+ratio of risk taken by you to other player who chose the same player into the price money.
+
+price money:
+money that other lost = (money on other two contestent who didn't win the cancellor gold)
+
+Formulation
+
+(money by you on A / total money on A) * (Money on B + Money on C + Money on D)
+
+* where money on A,B,C are approved biddings.

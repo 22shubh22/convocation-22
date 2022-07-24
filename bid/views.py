@@ -36,3 +36,7 @@ def home_view(request):
 def info_view(request):
     context = {}
     return render(request, "info.html", context)
+
+def formula_view(request):
+    context = {}
+    return render(request, "formula.html", context)
