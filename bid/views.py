@@ -23,6 +23,7 @@ def home_view(request):
                 etc_win_shubham = int((amount/(amount + total_bid_on_shubham)) * (total_bid_on_shreya + total_bid_on_raashid))
                 etc_win_raashid = int((amount/(amount + total_bid_on_raashid)) * (total_bid_on_shreya + total_bid_on_shubham))
                 context["calculation_value"] = True
+                context["calculation_amount"] = amount
                 context["etc_win_shreya"] = etc_win_shreya
                 context["etc_win_shubham"] = etc_win_shubham
                 context["etc_win_raashid"] = etc_win_raashid

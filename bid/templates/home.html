@@ -20,7 +20,7 @@
   <body>
     <div>
       <h1>Bid for fun, convocation CSE 2K16, SMVDU</h1>
-      <h3> Is there anyone in these who will get the cancellor gold medal? Bid and Vote</h3> 
+      <h3> Is there anyone in these who will get the Chancellor Gold Medal? Bid and Vote</h3> 
       <h2> Shreya, Shubham Up. or Rashid</h2>   
     <br>
     <!--Form with multiple submit buttons-->
@@ -42,6 +42,7 @@
       </form>
       <br>
       {% if calculation_value %}
+        If you bid an anount of ₹ {{calculation_amount}}
         <table>
           <tr>
             <th>Shreya</th>
@@ -54,7 +55,7 @@
             <td>₹ {{etc_win_raashid}}</td>
           </tr>
         </table>
-        * If you bid for shreya, you may get <b>₹ {{etc_win_shreya}}</b> based on current scenario, <b>₹ {{etc_win_shubham}}</b> with Shubham Up., and <b>₹ {{etc_win_raashid}}</b> with Raashid
+        * If you bid for Shreya, you may get <b>₹ {{etc_win_shreya}}</b> based on current scenario, <b>₹ {{etc_win_shubham}}</b> with Shubham Up., and <b>₹ {{etc_win_raashid}}</b> with Raashid
         <p>
           * <a href="{% url 'formula' %}">Bidding Formula</a>
         </p>
